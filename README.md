@@ -13,13 +13,3 @@ protoc --micro_out=. --go_out=. *.proto
 
 ### client启动
 配置config.ini
-
-
-### consul
-http://192.168.0.213:8500
-##### consul api
-```bash
- curl http://192.168.0.213:8500/v1/health/checks/<service name>
- curl http://192.168.0.213:8500/v1/catalog/services
- curl http://192.168.0.213:8500/v1/catalog/service/<service name>
- ```
