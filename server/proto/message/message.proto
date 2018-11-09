@@ -1,0 +1,35 @@
+syntax = "proto3";
+package message;
+
+service MessSrv{
+    //发送
+    rpc Send(SendRequest) returns(SendReply){}
+    //接收
+    rpc Receive(Empty) returns(ReceiveReply){}
+}
+
+message SendRequest{
+    UserInfo userinfo = 1;
+}
+
+message SendReply{
+    bool result = 1;
+}
+
+message Empty{}
+
+message ReceiveReply{
+    repeated UserInfo userinfo = 1;
+}
+
+message UserInfo{
+    int32 userid = 1;
+    string username = 2;
+    string intro = 3;
+}
+
+enum MessSrvErrors {
+    None = 0;
+
+    InvalidUserId = 1001; //无效的UserId
+}
